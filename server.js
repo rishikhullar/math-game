@@ -2,7 +2,7 @@ var config = require ('./config').values
 
 var app = require ('./app').getApp(config)
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 app.listen(port, function() {
 console.log("Listening on " + port);
 });
