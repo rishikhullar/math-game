@@ -2,14 +2,15 @@ var config = require ('./config').values
 
 var app = require ('./app').getApp(config)
 
-var port = process.env.PORT || 3001
-app.listen(port);
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+console.log("Listening on " + port);
+});
 
 //create handler for socket.io
 var race = require ('./lib/modules/race')
 race.createRace(app);
 
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 
 process.on('SIGINT', function () {
 	app.close();
