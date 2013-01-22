@@ -1,6 +1,6 @@
 var getApp = function (config) {
 	var express = require('express');
-	var app = module.exports = express.createServer();
+	var app = express();
 
 	//middleware
 	function local_env (req, res, next){
