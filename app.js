@@ -1,6 +1,6 @@
 var getApp = function (config) {
 	var express = require('express');
-	var app = express();
+	var app = module.exports = express.createServer();
 
 	//middleware
 	function local_env (req, res, next){
@@ -11,8 +11,8 @@ var getApp = function (config) {
 	app.configure(function(){
 		app.set('views', __dirname + '/views');
 		app.set('view engine', 'ejs');
-		app.engine('.html', require('ejs'));
-		app.engine('.ejs', require('ejs'));
+		app.register('.html', require('ejs'));
+		app.register('.ejs', require('ejs'));
 		app.use(express.bodyParser());
 		app.use(express.methodOverride());
 		app.use(express.cookieParser());
