@@ -38,4 +38,4 @@ var getApp = function (config) {
 	return app;
 };
 
-exports.getApp = getApp;
+module.exports.getApp = getApp;
