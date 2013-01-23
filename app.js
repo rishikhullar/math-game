@@ -1,6 +1,6 @@
 var getApp = function (config) {
 	var express = require('express');
-	var app = express();
+	var app = module.exports = express.createServer();
 
 	//middleware
 	function local_env (req, res, next){
@@ -38,4 +38,4 @@ var getApp = function (config) {
 	return app;
 };
 
-exports = getApp;
+exports.getApp = getApp;
